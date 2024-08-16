@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "jsx": "preserve",
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "Node",
+    "isolatedModules": true,
+    "strict": true,
+    "strictNullChecks": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "downlevelIteration": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": [".eslintrc.js", "src"],
+  "exclude": ["node_modules", "build"],
+  "extends": "./tsconfig.paths.json"
+}
