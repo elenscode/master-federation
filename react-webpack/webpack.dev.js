@@ -1,5 +1,7 @@
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
+const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
+const packageJson = require('./package.json');
 
 module.exports = merge(common, {
   mode: 'development',
@@ -7,6 +9,22 @@ module.exports = merge(common, {
     type: 'memory',
   },
   devtool: 'inline-source-map',
+  plugins: [
+    new ModuleFederationPlugin({
+      name: 'container',
+      remotes: {
+        vue: 'vue@http://localhost:8080/remoteEntry.js',
+      },
+      shared: {
+        vue: {
+          singleton: true,
+        },
+        'vue-router': {
+          singleton: true,
+        },
+      },
+    }),
+  ],
   module: {
     rules: [
       {

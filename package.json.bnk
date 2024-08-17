@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "description": "",
-  "workspaces":[
-    "vue3-vite",
-    "react-vite"
-  ],
   "scripts": {
     "build": "pnpm --parallel --filter \"./**\" build",
     "serve": "pnpm --parallel --filter \"./**\" preview"
